@@ -3,15 +3,14 @@
   <body>
     <label>Select Your Birth day</label>
     <input type="date" id="birthDay" />
-
+    <div>your Selected Birthday Is :<span id="SelectedBirthDate"></span></div>
     <script>
       document.body.addEventListener(
         "change",
         function () {
-          alert(
+          document.getElementById("SelectedBirthDate").innerHTML =
             "Your Selected Birth day is :  " +
-              formatDate(document.getElementById("birthDay").value)
-          );
+            formatDate(document.getElementById("birthDay").value);
         },
         true
       );
