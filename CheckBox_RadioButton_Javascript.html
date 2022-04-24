@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+  
+</head>
+<body>
+    <div>
+        <div>
+            <h3>Select Your Favourite Subject</h3>
+            <input type="checkbox" name="subject" value="Java" />Java<br />
+            <input type="checkbox" name="subject" value="Python" />Python<br />
+            <input type="checkbox" name="subject" value="c-sharp" />c-sharp<br />
+            <input type="checkbox" name="subject" value="Angular" />Angular<br />
+            <input type="checkbox" name="subject" value="Reactjs" />ReactJs<br />
+            <input type="checkbox" name="subject" value="Swift" />swift<br />
+            <input type="checkbox" name="subject" value="flutter" />flutter<br />
+        </div>
+        <div>
+            <p>your Selected Subject Array : <span id="SelectedSubject"></span></p>
+        </div>
+    </div>
+    
+    
+
+
+    <div>
+        <div>
+            <h3>Select Your Favourite Game</h3>
+            <input type="radio" name="Game" value="FootBall" />FootBall<br />
+            <input type="radio" name="Game" value="Cricket" />Cricket<br />
+            <input type="radio" name="Game" value="BollyBall" />BollyBall<br />
+            <input type="radio" name="Game" value="Tenis" />Tenis<br />
+            <input type="radio" name="Game" value="Swimming" />Swimming<br />
+            <input type="radio" name="Game" value="Shooting" />Shooting<br />
+        </div>
+        <div>
+            <div>
+                <p>your Selected Game  : <span id="SelectedGame"></span></p>
+            </div>
+        </div>
+    </div>
+
+    
+
+
+    <script>
+        //let subjects = [];
+        //let allsubjects = document.querySelectorAll('[name="subject"]:checked');
+        //Array.from(allsubjects).forEach((currentsubject, index) => {
+           
+        //    currentsubject.addEventListener("click", currentsubject => {
+                
+        //            subjects.push(currentsubject.target.value);
+                
+        //        alert(subjects);
+        //    })
+            
+        //})
+
+
+         //let allGame = document.querySelectorAll('[name="Game"]');
+        //Array.from(allGame).forEach((item, index) => {
+
+        //    item.addEventListener("click", game => {
+        //        alert("You Selected Game : " + game.target.value);
+
+        //    })
+        //})
+
+        document.body.addEventListener('click', function () {
+
+            let allsubjects = document.querySelectorAll('[name="subject"]');
+            document.getElementById("SelectedSubject").innerHTML = selectedCheckboxValues(allsubjects);
+            
+
+            let allGame = document.querySelectorAll('[name="Game"]');
+            document.getElementById("SelectedGame").innerHTML = selectedRadioButtonValues(allGame);
+
+        }, true);
+
+
+        function selectedCheckboxValues(ele) {
+            var arr = [];
+            for (var i = 0; i < ele.length; i++) {
+                if (ele[i].type == 'checkbox' && ele[i].checked) {
+                    arr.push(ele[i].value);
+                }
+            }
+            return arr;
+        }
+
+        function selectedRadioButtonValues(ele) {
+            var selectedValue =null;
+            for (var i = 0; i < ele.length; i++) {
+                if (ele[i].type == 'radio' && ele[i].checked) {
+                    selectedValue=ele[i].value;
+                }
+            }
+            return selectedValue;
+        }
+
+       
+        
+    </script>
+</body>
+</html>
